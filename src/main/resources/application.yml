@@ -1,0 +1,46 @@
+#server端口配置
+server:
+  port: 8082
+
+#数据库连接配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatis-xml?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&serverTimezone=GMT%2B8
+    username: root
+    password: 19910227730X
+    #数据源配置
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+  #HTML配置
+  thymeleaf:
+    # 模板存放路径
+    prefix: classpath:/templates/
+    # 模板后缀
+    suffix: .html
+    # 启用缓存，建议生产开启
+    cache: false
+    # 是否启用
+    enabled: true
+    # 模板编码
+    encoding: UTF-8
+
+  #热部署配置
+  devtools:
+    livereload:
+      enabled: true  #是否支持livereload
+    restart:
+      enabled: true  #是否支持热部署
+
+#Mybatis配置
+mybatis:
+  config-location: classpath:config/mybatis-config.xml  #mybatis配置文件位置
+  mapper-locations: classpath:mapper/*.xml       #mapper.xml 文件地址
+  type-aliases-package: com.thinkingcao.springboot.entity #实体类别名
+
+#日志配置
+logging:
+  level:
+    com.thinkingcao.springboot.mapper: debug   #项目日志配置
+    org.springframework.web: DEBUG   #Spring框架日志配置
+
+
